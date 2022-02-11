@@ -1,0 +1,6 @@
+# Ohter Routes
+
+# An example controller showing a sample home page
+
+GET     /other-world                           controllers.other.OtherController.otherPageLoad()
+

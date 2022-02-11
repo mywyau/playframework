@@ -15,7 +15,6 @@ lazy val root =
         //      "models.Mode",
         //      "controllers.routes._" etc.
       ),
-      scalacOptions += "-Ypartial-unification",
       libraryDependencies += guice,
       libraryDependencies ++= AppDependencies()
     )
