@@ -1,14 +1,27 @@
-name := """playframework"""
+import sbt.Keys.libraryDependencies
+
 organization := "mikey.org"
 
 version := "1.0-SNAPSHOT"
 
-lazy val root = (project in file(".")).enablePlugins(PlayScala)
+lazy val root =
+  (project in file("."))
+    .enablePlugins(PlayScala)
+    .settings(
+      name := """playframework""",
+      scalaVersion := "2.13.8",
+      TwirlKeys.templateImports ++= Seq(
+        //     "views.ViewUtils._",
+        //      "models.Mode",
+        //      "controllers.routes._" etc.
+      ),
+      scalacOptions += "-Ypartial-unification",
+      libraryDependencies += guice,
+      libraryDependencies ++= AppDependencies()
+    )
 
-scalaVersion := "2.13.8"
 
-libraryDependencies += guice
-libraryDependencies += "org.scalatestplus.play" %% "scalatestplus-play" % "5.0.0" % Test
+
 
 // Adds additional packages into Twirl
 //TwirlKeys.templateImports += "mikey.org.controllers._"
