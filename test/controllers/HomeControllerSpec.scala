@@ -4,6 +4,7 @@ import org.scalatestplus.play._
 import org.scalatestplus.play.guice._
 import play.api.test._
 import play.api.test.Helpers._
+import views.html.indexView
 
 /**
  * Add your spec here.
@@ -11,12 +12,15 @@ import play.api.test.Helpers._
  *
  * For more information, see https://www.playframework.com/documentation/latest/ScalaTestingWithScalaTest
  */
-class HomeControllerSpec extends PlaySpec with GuiceOneAppPerTest with Injecting {
+class HomeControllerSpec extends BaseControllerSpec {
+
+  val indexView: indexView = app.injector.instanceOf[indexView]
 
   "HomeController GET" should {
 
     "render the index page from a new instance of controller" in {
-      val controller = new HomeController(stubControllerComponents())
+
+      val controller = new HomeController(indexView, stubControllerComponents())
       val home = controller.index().apply(FakeRequest(GET, "/"))
 
       status(home) mustBe OK
@@ -25,6 +29,7 @@ class HomeControllerSpec extends PlaySpec with GuiceOneAppPerTest with Injecting
     }
 
     "render the index page from the application" in {
+
       val controller = inject[HomeController]
       val home = controller.index().apply(FakeRequest(GET, "/"))
 
@@ -34,6 +39,7 @@ class HomeControllerSpec extends PlaySpec with GuiceOneAppPerTest with Injecting
     }
 
     "render the index page from the router" in {
+
       val request = FakeRequest(GET, "/")
       val home = route(app, request).get
 
