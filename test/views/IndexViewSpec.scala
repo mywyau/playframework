@@ -14,9 +14,7 @@ class IndexViewSpec extends BaseViewSpec {
 
   val view: indexView = app.injector.instanceOf[indexView]
 
-  val titleParam = "I am a title passed into the view"
-
-  def applyView(title:String): HtmlFormat.Appendable = view.apply(title)
+  def applyView: HtmlFormat.Appendable = view.apply()
 
   val expectedMessages: Seq[(String, String)] =
     Seq(
@@ -25,6 +23,6 @@ class IndexViewSpec extends BaseViewSpec {
 
   "IndexView" should {
 
-    pageWithExpectedMessages(applyView(titleParam), expectedMessages)
+    pageWithExpectedMessages(applyView, expectedMessages)
   }
 }
