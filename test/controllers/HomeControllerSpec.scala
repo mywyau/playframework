@@ -16,16 +16,18 @@ class HomeControllerSpec extends BaseControllerSpec {
 
   val indexView: indexView = app.injector.instanceOf[indexView]
 
+  val controller = new HomeController(messagesApi, indexView, messagesControllerComponents)
+
   "HomeController GET" should {
 
     "render the index page from a new instance of controller" in {
 
-      val controller = new HomeController(indexView, stubControllerComponents())
+      //      val controller = new HomeController(indexView, stubControllerComponents())
       val home = controller.index().apply(FakeRequest(GET, "/"))
 
       status(home) mustBe OK
       contentType(home) mustBe Some("text/html")
-      contentAsString(home) must include ("Welcome to Play")
+      contentAsString(home) must include("Welcome to Play")
     }
 
     "render the index page from the application" in {
@@ -35,7 +37,7 @@ class HomeControllerSpec extends BaseControllerSpec {
 
       status(home) mustBe OK
       contentType(home) mustBe Some("text/html")
-      contentAsString(home) must include ("Welcome to Play")
+      contentAsString(home) must include("Welcome to Play")
     }
 
     "render the index page from the router" in {
@@ -45,7 +47,7 @@ class HomeControllerSpec extends BaseControllerSpec {
 
       status(home) mustBe OK
       contentType(home) mustBe Some("text/html")
-      contentAsString(home) must include ("Welcome to Play")
+      contentAsString(home) must include("Welcome to Play")
     }
   }
 }
