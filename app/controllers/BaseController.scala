@@ -1,0 +1,6 @@
+package controllers
+
+trait BaseController {
+
+
+}
