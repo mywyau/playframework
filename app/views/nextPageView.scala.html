@@ -1,0 +1,16 @@
+
+@import model.UserData
+@import helper._
+
+@this()
+
+@(userForm: Form[UserData], name: String, postAction: Call)(implicit messages: Messages)
+
+  @helper.form(action = postAction) {
+    @helper.inputText(userForm("name"))
+    @helper.inputText(userForm("age"))
+  }
+
+  @main("Next Page") {
+    <h1>The next page</h1>
+  }

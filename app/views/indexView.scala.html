@@ -1,12 +1,21 @@
 
-
+@import model.UserData
+@import helper._
 
 @this()
 
-@(name: String)(implicit messages: Messages)
+@(userForm: Form[UserData], name: String, postAction: Call)(implicit request: RequestHeader, messages: Messages)
 
-@main("Welcome to Play") {
-  <h1>Welcome to Play! Hi Mikey</h1>
-  <p><strong>This is a bold paragraph</strong></p>
-  <p>@messages("home.title")</p>
-}
+  @main("Welcome to Play") {
+    <h1>Welcome to Play! Hi Mikey</h1>
+    <p><strong>This is a bold paragraph</strong></p>
+    <p>@messages("home.title")</p>
+
+    @helper.form(action = postAction) {
+    @CSRF.formField
+    @helper.inputText(userForm("name"), Symbol("id") -> "name", Symbol("size") -> 30)
+    @helper.inputText(userForm("age"))
+    <input type="submit" value="Submit">
+    }
+  }
+
