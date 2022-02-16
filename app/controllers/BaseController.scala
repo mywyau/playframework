@@ -1,6 +1,0 @@
-package controllers
-
-trait BaseController {
-
-
-}
