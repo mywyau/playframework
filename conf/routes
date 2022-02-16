@@ -12,7 +12,11 @@ GET     /assets/*file               controllers.Assets.versioned(path="/public",
 
 # An example controller showing a sample home page
 
-GET     /                           controllers.HomeController.index()
+GET     /                                   controllers.HomeController.onPageLoad()
+POST    /                                   controllers.HomeController.onSubmit()
+
+GET     /nextPage                           controllers.NextPageController.onPageLoad()
+POST    /nextPage                           controllers.NextPageController.onSubmit()
 
 
 

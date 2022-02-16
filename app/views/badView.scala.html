@@ -1,0 +1,24 @@
+
+@import model.UserData
+@import helper._
+
+@this()
+
+@(userForm: Form[UserData], name: String, postAction: Call)(implicit request: RequestHeader, messages: Messages)
+
+  @main("Welcome to BAD Request View") {
+    <h1>Bad Request your form has errors please try again</h1>
+
+    @helper.form(action = postAction) {
+      @CSRF.formField
+
+      @helper.inputText(userForm("name"), Symbol("id") -> "name", Symbol("size") -> 30)
+      <dd class="error">This field is required and your name must be 30 characters or less</dd>
+
+      @helper.inputText(userForm("age"))
+      <dd class="error">This field is required or you have not input a number 0 - 100</dd>
+
+      <input type="submit" value="Submit">
+    }
+
+  }

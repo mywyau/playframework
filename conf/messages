@@ -7,13 +7,13 @@
 # Default messages
 
 # --- Constraints
-constraint.required=Required
-constraint.min=Minimum value: {0}
-constraint.max=Maximum value: {0}
-constraint.minLength=Minimum length: {0}
-constraint.maxLength=Maximum length: {0}
-constraint.email=Email
-constraint.pattern=Required pattern: {0}
+constraint.required = Required
+constraint.min = Minimum value: {0}
+constraint.max = Maximum value: {0}
+constraint.minLength = Minimum length: {0}
+constraint.maxLength = Maximum length: {0}
+constraint.email = Email
+constraint.pattern = Required pattern: {0}
 
 # --- Formats
 format.date=Date (''{0}'')
@@ -27,23 +27,34 @@ formats.date=yyyy-MM-dd
 # --- Errors
 error.invalid=Invalid value
 error.invalid.java.util.Date=Invalid date value
+
 error.required=This field is required
+
 error.number=Numeric value expected
+
 error.real=Real number value expected
 error.real.precision=Real number value with no more than {0} digit(s) including {1} decimal(s) expected
-error.min=Must be greater or equal to {0}
+
+error.min= Must be greater or equal to {0}
 error.min.strict=Must be strictly greater than {0}
+
 error.max=Must be less or equal to {0}
 error.max.strict=Must be strictly less than {0}
+
 error.minLength=Minimum length is {0}
 error.maxLength=Maximum length is {0}
+
 error.email=Valid email required
+
 error.pattern=Must satisfy {0}
+
 error.date=Valid date required
 error.uuid=Valid UUID required
 
+# Date Errors
 error.expected.date=Date value expected
 error.expected.date.isoformat=Iso date value expected
+
 error.expected.time=Time value expected
 error.expected.jsarray=Array value expected
 error.expected.jsboolean=Boolean value expected
