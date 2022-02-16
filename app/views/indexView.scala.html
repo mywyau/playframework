@@ -1,6 +1,12 @@
+
+
+
 @this()
+
+@(name: String)(implicit messages: Messages)
 
 @main("Welcome to Play") {
   <h1>Welcome to Play! Hi Mikey</h1>
-  <p><strong>Welcome to Play! Hi Mikey</strong></p>
+  <p><strong>This is a bold paragraph</strong></p>
+  <p>@messages("home.title")</p>
 }
